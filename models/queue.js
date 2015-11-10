@@ -2,7 +2,8 @@ var display = require('./display.js');
 
 // Jobs that will be processed by the queue
 var jobs = [
-    require('./jobs/time.js')
+    require('./jobs/time.js'),
+    require('./jobs/system_load.js')
 ];
 
 /**
