@@ -1,8 +1,15 @@
-var config = {};
+var config = {
+    display: {
+        'ip': '10.0.0.140',
+        'port': 8090
+    },
+    jobs: {
+        gratificator: {
+            name: 'Michael',
+            attributes: ['is awesome', 'rocks', 'is the best', '-> the man', 'splendid looks', 'shiny!!!'],
+        },
+    },
+};
 
-config.display = {
-    'ip': '10.0.0.1',
-    'port': 8090
-}
 
 module.exports = config;
