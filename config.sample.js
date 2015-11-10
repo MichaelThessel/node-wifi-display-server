@@ -8,6 +8,11 @@ var config = {
             name: 'FooBar',
             attributes: ['is awesome', 'rocks', 'is the best', '-> the man', 'splendid looks', 'shiny!!!'],
         },
+        weather: {
+            apiKey: 'insertyourapikeyhere', // Forecast.io API key
+            latitude: 31.5225707,
+            longitude: 34.45317,
+        },
     },
 };
 

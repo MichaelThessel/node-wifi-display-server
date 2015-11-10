@@ -5,6 +5,7 @@ var jobs = [
     require('./jobs/time.js'),
     require('./jobs/system_load.js'),
     require('./jobs/gratificator.js'),
+    require('./jobs/weather.js'),
 ];
 
 /**
