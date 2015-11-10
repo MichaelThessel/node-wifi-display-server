@@ -4,6 +4,7 @@ var display = require('./display.js');
 var jobs = [
     require('./jobs/time.js'),
     require('./jobs/system_load.js'),
+    require('./jobs/network_traffic.js'),
     require('./jobs/gratificator.js'),
     require('./jobs/weather.js'),
 ];
