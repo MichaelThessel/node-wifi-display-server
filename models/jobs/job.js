@@ -14,8 +14,8 @@ Job.prototype.getPriority = function() {
 /*
  * Get job data
  */
-Job.prototype.getData = function() {
-    return this.data;
+Job.prototype.getData = function(callback) {
+    callback(this);
 }
 
 /*

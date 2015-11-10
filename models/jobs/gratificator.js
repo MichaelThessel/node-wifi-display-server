@@ -12,7 +12,7 @@ function Gratificator() {
 
 Gratificator.prototype = new Job();
 
-Gratificator.prototype.getData = function () {
+Gratificator.prototype.getData = function (callback) {
     var attributeIndex = Math.round(Math.random() * (config.jobs.gratificator.attributes.length - 1));
 
     this.data = [
@@ -20,7 +20,7 @@ Gratificator.prototype.getData = function () {
         config.jobs.gratificator.attributes[attributeIndex],
     ];
 
-    return this.data;
+    callback(this);
 }
 
 module.exports = new Gratificator();

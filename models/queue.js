@@ -36,6 +36,15 @@ Queue.prototype.setCurrentJobTtl = function(job) {
 }
 
 /*
+ * Job callback function
+ */
+Queue.prototype.callback = function (job) {
+    if (!job.doDisplay()) { return; }
+
+    display(job.data, job.getFormatterOptions());
+}
+
+/*
  * Execute the job queue
  */
 Queue.prototype.execute = function () {
@@ -45,11 +54,8 @@ Queue.prototype.execute = function () {
     if (this.currentJobTtl > 0) { return; }
 
     job = this.jobs[this.jobIndex];
-
-    if (job.getData() && job.doDisplay()) {
-        display(job.getData(), job.getFormatterOptions());
-        this.setCurrentJobTtl(job);
-    }
+    job.getData(this.callback);
+    this.setCurrentJobTtl(job);
 
     this.jobIndex++;
     if (this.jobIndex >= this.jobs.length) { this.jobIndex = 0; }

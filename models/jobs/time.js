@@ -11,16 +11,15 @@ function Time() {
 
 Time.prototype = new Job();
 
-Time.prototype.getData = function () {
+Time.prototype.getData = function (callback, display) {
     var date = new Date();
-
 
     this.data = [
         date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate(),
         date.getHours() + ':' + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
     ];
 
-    return this.data;
+    callback(this);
 }
 
 module.exports = new Time();
