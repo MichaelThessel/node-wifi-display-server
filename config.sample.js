@@ -5,7 +5,7 @@ var config = {
     },
     jobs: {
         gratificator: {
-            name: 'Michael',
+            name: 'FooBar',
             attributes: ['is awesome', 'rocks', 'is the best', '-> the man', 'splendid looks', 'shiny!!!'],
         },
     },
