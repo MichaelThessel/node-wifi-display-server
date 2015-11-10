@@ -9,7 +9,8 @@ router.get('/api/submit/:line1/:line2*?', function(req, res, next) {
 
     display([line1, line2]);
 
-    res.send({}, 200);
+    res.write(JSON.stringify({ 'status': 'success' }));
+    res.end();
 });
 
 module.exports = router;
