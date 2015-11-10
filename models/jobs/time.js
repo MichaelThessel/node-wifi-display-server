@@ -12,11 +12,21 @@ function Time() {
 Time.prototype = new Job();
 
 Time.prototype.getData = function (callback, display) {
-    var date = new Date();
+    var date = new Date(),
+        year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDate(),
+        hours = date.getHours(),
+        minutes = date.getMinutes(),
+
+    month = (month < 10) ? '0' + month : month;
+    day = (day < 10) ? '0' + day : day;
+    hours = (hours < 10) ? '0' + hours : hours;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
 
     this.data = [
-        date.getFullYear() + '/' + (date.getMonth() + 1) + '/' + date.getDate(),
-        date.getHours() + ':' + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
+        year + '/' + month + '/' + day,
+        hours + ':' + minutes,
     ];
 
     callback(this);
