@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var queue = require('./models/queue.js');
 
 var routes = require('./routes/api');
 
@@ -48,5 +49,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// Start the job queue
+queue.run();
 
 module.exports = app;
