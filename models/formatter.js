@@ -10,15 +10,68 @@
  *
  * 3|6:FOOFOOBAR
  */
-exports.format = function(line1, line2) {
-    var l1 = line1.length,
-        l2 = line2.length,
-        message;
 
-    l1 = (l1 < 10) ? '0' + l1 : l1;
-    l2 = (l2 < 10) ? '0' + l2 : l2;
+function Formatter() {
+    this.rows = 2;
+    this.columns = 16;
 
-    message = l1 + '|' + l2 + ':' + line1 + line2;
-
-    return message;
+    this.message = '';
+    this.lines = [];
+    this.options = [];
 }
+
+/*
+ * Add header tro message
+ */
+Formatter.prototype.addHeader = function() {
+    var header = [], data = '', l;
+
+    for (var i = 0; i < this.lines.length; i++) {
+        l = this.lines[i].length;
+        header[i] = l < 10 ? '0' + l : l;
+        data += this.lines[i];
+    }
+
+    this.message = header.join('|') + ':' + data;
+}
+
+/*
+ * Apply formatting options to each line
+ */
+Formatter.prototype.applyOptions = function() {
+    if (!this.options.length) { return }
+
+    for (var i = 0; i < this.options.length; i++) {
+        if (this.options[i] == 'center') {
+            this.lines[i] = this.center(this.lines[i]);
+        }
+    }
+}
+
+/*
+ * Center a line
+ */
+Formatter.prototype.center = function(line) {
+    var length = line.length;
+
+    for (var i = 0; i < Math.floor((this.columns - length) / 2); i++) {
+        line = ' ' + line;
+    }
+
+    return line;
+}
+
+/*
+ * Format data for submission to display
+ */
+Formatter.prototype.format = function(lines, options) {
+    this.lines = lines || [];
+    this.options = options || [];
+
+    this.applyOptions();
+    this.addHeader();
+
+    return this.message;
+}
+
+module.exports = new Formatter();
