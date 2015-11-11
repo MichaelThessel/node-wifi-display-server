@@ -28,6 +28,7 @@ function Queue(jobs) {
  * Set the time before the next job will be executed
  */
 Queue.prototype.setCurrentJobTtl = function(job) {
+    if (!job.doDisplay()) { return; }
     var jobPriority = job.getPriority();
 
     if (typeof this.priorityTtl[job.getPriority()] == 'undefined') {
