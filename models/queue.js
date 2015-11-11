@@ -7,6 +7,7 @@ var jobs = [
     require('./jobs/network_traffic.js'),
     require('./jobs/gratificator.js'),
     require('./jobs/weather.js'),
+    require('./jobs/github_notification.js'),
 ];
 
 /**

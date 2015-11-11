@@ -8,6 +8,9 @@ var config = {
             "name": "FooBar",
             "attributes": ["is awesome", "rocks", "is the best", "-> the man", "splendid looks", "shiny!!!"],
         },
+        "githubNotification": {
+            "accessToken": "insertyouraccesstokenhere", // GitHub > Settings > Personal Access Token
+        },
         "networkTraffic": {
             "interface": "eth0",
         },

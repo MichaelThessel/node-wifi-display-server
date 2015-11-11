@@ -29,7 +29,7 @@ Job.prototype.getFormatterOptions = function() {
  * Returns whether or not to display the results of the job execution
  */
 Job.prototype.doDisplay = function() {
-    return this.data.length;
+    return this.hasData;
 }
 
 module.exports = Job;
