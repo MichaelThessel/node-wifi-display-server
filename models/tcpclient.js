@@ -10,9 +10,7 @@ exports.send = function(message) {
     client.connect(config.display.port, config.display.ip, function() {
         console.log('Sending message: ' + message);
         client.write(message);
-    });
-
-    client.on('close', function() {
-        console.log('Connection closed');
-    });
+    }).on('error', function(e) {
+        console.error(e);
+    });;
 }
