@@ -28,10 +28,20 @@ Weather.prototype.getData = function (callback) {
     var _this = this;
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        var current = JSON.parse(body).currently;
+        var response = JSON.parse(body),
+            currently = response.currently,
+            minutely = response.minutely,
+            precip, temp;
+
+        // Get the temperature in celcius
+        temp = Math.round((currently.temperature - 32) * 5 / 9);
+
+        // Get the chance of precipitation in 15 minutes
+        precip = minutely.data[14].precipProbability * 100;
+
         _this.data = [
-            'Temp: ' + Math.round((current.temperature - 32) * 5 / 9) + 'C',
-            'Percip: ' + Math.round(current.precipProbability * 100) + '%',
+            'Temp: ' + temp + 'C',
+            'Precip: ' + precip + '%',
         ];
 
         // Fetch every 2 minutes, forecast.io has a daily limit of 1000 requests
