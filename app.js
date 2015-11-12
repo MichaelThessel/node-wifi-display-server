@@ -17,7 +17,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   res.write(JSON.stringify({ 'status': 'not found' }));
   res.end();
-  next(err);
 });
 
 // Error handlers
