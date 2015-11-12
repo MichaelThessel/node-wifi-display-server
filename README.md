@@ -13,6 +13,7 @@ For detailed information on the build please check [here](http://michaelthessel.
 
 **Simple GET API**
 
-`http://server:port/api/submit/[line1]/[line2]`
+`http://server:port/api/submit/[line1]/[line2]/[priority]`
 
-line2 is optional
+line2 (optional)
+priority (optional)i [INFO|NOTICE|ALERT]
