@@ -27,16 +27,13 @@ function Queue(jobs) {
 /*
  * Set the time before the next job will be executed
  */
-Queue.prototype.setCurrentJobTtl = function(job) {
-    if (!job.doDisplay()) { return; }
-    var jobPriority = job.getPriority();
-
-    if (typeof this.priorityTtl[job.getPriority()] == 'undefined') {
+Queue.prototype.setCurrentJobTtl = function(priority) {
+    if (typeof this.priorityTtl[priority] == 'undefined') {
         this.currentJobTtl = this.priorityTtl.INFO;
         return;
     }
 
-    this.currentJobTtl = this.priorityTtl[job.getPriority()];
+    this.currentJobTtl = this.priorityTtl[priority];
 }
 
 /*
@@ -59,7 +56,9 @@ Queue.prototype.execute = function () {
 
     job = this.jobs[this.jobIndex];
     job.getData(this.callback);
-    this.setCurrentJobTtl(job);
+    if (job.doDisplay()) {
+        this.setCurrentJobTtl(job.getPriority());
+    }
 
     this.jobIndex++;
     if (this.jobIndex >= this.jobs.length) { this.jobIndex = 0; }
