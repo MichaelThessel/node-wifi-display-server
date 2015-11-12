@@ -15,5 +15,5 @@ For detailed information on the build please check [here](http://michaelthessel.
 
 `http://server:port/api/submit/[line1]/[line2]/[priority]`
 
-line2 (optional)
-priority (optional)i [INFO|NOTICE|ALERT]
+* line2 (optional)
+* priority (optional) [INFO|NOTICE|ALERT]
