@@ -68,6 +68,12 @@ Formatter.prototype.format = function(lines, options) {
     this.lines = lines || [];
     this.options = options || [];
 
+    // Stript the lines to max column length
+    for (var i = 0; i < lines.length; i++) {
+        if (!lines[i]) continue;
+        lines[i] = lines[i].substr(0, this.columns);
+    }
+
     this.applyOptions();
     this.addHeader();
 
