@@ -23,8 +23,7 @@ GoogleCalendar.prototype.getNextEvent = function(auth) {
             maxResults: 1,
             singleEvents: true,
             orderBy: 'startTime'
-        },
-        event = [];
+        };
 
     var _this = this;
     calendar.events.list(options, function(err, response) {
