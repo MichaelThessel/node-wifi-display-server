@@ -65,13 +65,13 @@ NetworkTraffic.prototype.format = function(data) {
 /*
  * Get formatted traffic data
  */
-NetworkTraffic.prototype.getData = function (callback) {
+NetworkTraffic.prototype.getData = function () {
     this.data = [
         'RX: ' + this.format(this.traffic.drx),
         'TX: ' + this.format(this.traffic.dtx),
     ];
 
-    callback(this);
+    this.callback(this);
 }
 
 var nwt = new NetworkTraffic();

@@ -11,7 +11,7 @@ function Time() {
 
 Time.prototype = new Job();
 
-Time.prototype.getData = function (callback, display) {
+Time.prototype.getData = function () {
     var date = new Date(),
         year = date.getFullYear(),
         month = date.getMonth() + 1,
@@ -29,7 +29,7 @@ Time.prototype.getData = function (callback, display) {
         hours + ':' + minutes,
     ];
 
-    callback(this);
+    this.callback(this);
 }
 
 module.exports = new Time();

@@ -12,7 +12,7 @@ function GithubNotification() {
 
 GithubNotification.prototype = new Job();
 
-GithubNotification.prototype.getData = function (callback) {
+GithubNotification.prototype.getData = function () {
     var url = 'https://api.github.com/notifications?access_token='
         + config.jobs.githubNotification.accessToken;
 
@@ -45,7 +45,7 @@ GithubNotification.prototype.getData = function (callback) {
             _this.hasData = true;
         }
 
-        callback(_this);
+        _this.callback(_this);
     });
 }
 

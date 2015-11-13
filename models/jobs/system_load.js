@@ -11,7 +11,7 @@ function SystemLoad() {
 
 SystemLoad.prototype = new Job();
 
-SystemLoad.prototype.getData = function (callback) {
+SystemLoad.prototype.getData = function () {
     var data = fs.readFileSync('/proc/loadavg').toString();
 
     data = data.split(' ');
@@ -20,7 +20,7 @@ SystemLoad.prototype.getData = function (callback) {
         data[0] + ' '+ data[1] + ' ' + data[2],
     ];
 
-    callback(this);
+    this.callback(this);
 }
 
 module.exports = new SystemLoad();

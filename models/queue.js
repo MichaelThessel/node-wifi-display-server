@@ -3,6 +3,7 @@ var display = require('./display.js');
 // Jobs that will be processed by the queue
 var jobs = [
     require('./jobs/time.js'),
+    require('./jobs/google-calendar.js'),
     require('./jobs/system_load.js'),
     require('./jobs/network_traffic.js'),
     require('./jobs/gratificator.js'),
@@ -42,6 +43,7 @@ Queue.prototype.setCurrentJobTtl = function(priority) {
 Queue.prototype.callback = function (job) {
     if (!job.doDisplay()) { return; }
 
+    this.setCurrentJobTtl(job.getPriority());
     display(job.data, job.getFormatterOptions());
 }
 
@@ -55,10 +57,8 @@ Queue.prototype.execute = function () {
     if (this.currentJobTtl > 0) { return; }
 
     job = this.jobs[this.jobIndex];
-    job.getData(this.callback);
-    if (job.doDisplay()) {
-        this.setCurrentJobTtl(job.getPriority());
-    }
+    job.setCallback(this.callback.bind(this));
+    job.getData();
 
     this.jobIndex++;
     if (this.jobIndex >= this.jobs.length) { this.jobIndex = 0; }

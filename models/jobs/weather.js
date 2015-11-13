@@ -14,14 +14,14 @@ function Weather() {
 
 Weather.prototype = new Job();
 
-Weather.prototype.getData = function (callback) {
+Weather.prototype.getData = function () {
     var url = 'https://api.forecast.io/forecast/'
         +  config.jobs.weather.apiKey + '/'
         +  config.jobs.weather.latitude + ','
         +  config.jobs.weather.longitude;
 
     if (Date.now < this.cacheExpiry) {
-        callback(this);
+        this.callback(this);
         return;
     }
 
@@ -50,7 +50,7 @@ Weather.prototype.getData = function (callback) {
             // Fetch every 2 minutes, forecast.io has a daily limit of 1000 requests
             _this.cacheExpiry = Date.now + 60 * 2 * 1000;
 
-            callback(_this);
+            _this.callback(_this);
         }
     });
 }

@@ -17,3 +17,12 @@ For detailed information on the build please check [here](http://michaelthessel.
 
 * line2 (optional)
 * priority (optional) [INFO|NOTICE|ALERT]
+
+**Authenticate with Google API**
+run:
+
+```
+node googleOauth2Authenticate.js
+```
+
+and follow the on screen instructions

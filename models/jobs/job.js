@@ -2,6 +2,7 @@ function Job() {
     this.priority = 'INFO';
     this.data = [];
     this.formatterOptions = [];
+    this.callback = function() {};
 }
 
 /*
@@ -14,8 +15,15 @@ Job.prototype.getPriority = function() {
 /*
  * Get job data
  */
-Job.prototype.getData = function(callback) {
-    callback(this);
+Job.prototype.getData = function() {
+    this.callback(this);
+}
+
+/*
+ * Set callback
+ */
+Job.prototype.setCallback = function(callback) {
+    this.callback = callback;
 }
 
 /*
