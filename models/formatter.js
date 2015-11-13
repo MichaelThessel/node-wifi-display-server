@@ -70,8 +70,8 @@ Formatter.prototype.format = function(lines, options) {
 
     // Stript the lines to max column length
     for (var i = 0; i < lines.length; i++) {
-        if (!lines[i]) continue;
-        lines[i] = lines[i].substr(0, this.columns);
+        if (typeof lines[i] == 'undefined') continue;
+        lines[i] = lines[i].toString().substr(0, this.columns);
     }
 
     this.applyOptions();
