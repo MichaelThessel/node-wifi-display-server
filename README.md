@@ -19,6 +19,7 @@ For detailed information on the build please check [here](http://michaelthessel.
 * priority (optional) [INFO|NOTICE|ALERT]
 
 **Authenticate with Google API**
+
 run:
 
 ```
