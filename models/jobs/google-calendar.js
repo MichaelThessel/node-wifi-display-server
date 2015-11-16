@@ -1,5 +1,4 @@
 var Job = require('./job.js');
-var config = require('../../config.js');
 var googleOauth2 = require('../google-oauth2.js');
 var google = require('googleapis');
 
