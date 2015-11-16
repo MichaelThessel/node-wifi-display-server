@@ -26,10 +26,14 @@ function Formatter() {
 Formatter.prototype.addHeader = function() {
     var header = [], data = '', l;
 
-    for (var i = 0; i < this.lines.length; i++) {
-        l = this.lines[i].length;
-        header[i] = l < 10 ? '0' + l : l;
-        data += this.lines[i];
+    for (var i = 0; i < this.rows; i++) {
+        if (typeof this.lines[i] == 'undefined') {
+            header[i] = '00';
+        } else {
+            l = this.lines[i].length;
+            header[i] = l < 10 ? '0' + l : l;
+            data += this.lines[i];
+        }
     }
 
     this.message = header.join('|') + ':' + data;
