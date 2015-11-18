@@ -21,7 +21,7 @@ FileSystem.prototype.getData = function () {
     }
 
     fileSystems = fileSystems.join(' ');
-    command = '/bin/df ' + fileSystems + ' --output="pcent"';
+    command = '/bin/df ' + fileSystems + ' | awk \'{print $5}\'';
 
     var _this = this;
     child = exec(command, function (error, stdout, stderr) {
