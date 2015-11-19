@@ -1,4 +1,4 @@
-var express = require('daemon')();
+require('daemon')();
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
