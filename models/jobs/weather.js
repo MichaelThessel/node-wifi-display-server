@@ -32,17 +32,23 @@ Weather.prototype.getData = function () {
             var response = JSON.parse(body),
                 currently = response.currently,
                 minutely = response.minutely,
-                precip, temp;
+                precip, temp, wind, humidity;
 
             // Get the temperature in celcius
             temp = Math.round((currently.temperature - 32) * 5 / 9);
 
-            // Get the chance of precipitation in 15 minutes
+            // Get the chance of precipitation in 15 minutes in %
             precip = minutely.data[14].precipProbability * 100;
 
+            // Current wind speed in km/h
+            wind = Math.round(currently.windSpeed * 1.609344497892563);
+
+            // Humidity in %
+            humidity = currently.humidity * 100;
+
             _this.data = [
-                'Temp: ' + temp + 'C',
-                'Precip: ' + precip + '%',
+                'T: ' + temp + 'C P: ' + precip + '%',
+                'H: ' + humidity + '% W: ' + wind + 'km/h',
             ];
 
             _this.hasData = true;
