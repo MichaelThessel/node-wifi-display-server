@@ -7,7 +7,6 @@ var jobs = [
     require('./jobs/system_load.js'),
     require('./jobs/filesystem.js'),
     require('./jobs/network_traffic.js'),
-    require('./jobs/gratificator.js'),
     require('./jobs/weather.js'),
     require('./jobs/github_notification.js'),
     require('./jobs/google-mail.js'),

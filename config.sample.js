@@ -8,10 +8,6 @@ var config = {
            { "fs": "/dev/sda1", "label": "/dev/sda1" },
            { "fs": "/dev/sda2", "label": "/dev/sda2" },
         ],
-        "gratificator": {
-            "name": "FooBar",
-            "attributes": ["is awesome", "rocks", "is the best", "-> the man", "splendid looks", "shiny!!!"],
-        },
         "githubNotification": {
             "accessToken": "insertyouraccesstokenhere", // GitHub > Settings > Personal Access Token
         },
