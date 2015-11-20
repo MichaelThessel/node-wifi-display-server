@@ -38,7 +38,7 @@ Weather.prototype.getData = function () {
             temp = Math.round((currently.temperature - 32) * 5 / 9);
 
             // Get the chance of precipitation in 15 minutes in %
-            precip = minutely.data[14].precipProbability * 100;
+            precip = Math.round(minutely.data[14].precipProbability * 100);
 
             // Current wind speed in km/h
             wind = Math.round(currently.windSpeed * 1.609344497892563);
