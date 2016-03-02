@@ -44,7 +44,7 @@ Weather.prototype.getData = function () {
             wind = Math.round(currently.windSpeed * 1.609344497892563);
 
             // Humidity in %
-            humidity = currently.humidity * 100;
+            humidity = Math.round(currently.humidity * 100);
 
             _this.data = [
                 'T: ' + temp + 'C P: ' + precip + '%',
