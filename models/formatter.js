@@ -8,7 +8,7 @@
  *  line1: FOO
  *  line2: FOOBAR
  *
- * 3|6:FOOFOOBAR
+ * 03|06:FOOFOOBAR
  */
 
 function Formatter() {
