@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "daemon": "^1.1.0",
-    "debug": "~2.2.0",
+    "debug": "~4.1.1",
     "express": "~4.13.1",
     "google-auth-library": "^0.9.7",
     "googleapis": "^2.1.6",
